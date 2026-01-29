@@ -1,65 +1,55 @@
-import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
-  );
+	return (
+		<div className="infesta-animated-bg h-screen w-full px-6 text-white">
+			<div className="mx-auto flex h-full w-full max-w-4xl flex-col items-center justify-center gap-10 text-center">
+				<div className="space-y-4">
+					<p className="text-xs uppercase tracking-[0.4em] ">
+						St. Antony's College Peruvanthanam
+					</p>
+					<h1 className="text-4xl font-extrabold tracking-widest text-white sm:text-5xl">
+						Infesta: WebSprint Challenge
+					</h1>
+					<p className="max-w-2xl text-base text-slate-200 sm:text-lg">
+						Welcome to Infesta, the official frontend development game at St. Antony&apos;s
+						College Peruvanthanam. Push your UI skills, race the clock, and earn your
+						bragging rights.
+					</p>
+				</div>
+
+				<div className="w-full rounded-3xl border border-red-500/30 bg-black/70 p-8 shadow-[0_0_50px_rgba(255,26,26,0.15)] sm:p-10">
+					<div className="grid gap-6 sm:grid-cols-3">
+						<div className="rounded-2xl border border-red-500/20 bg-black/80 p-5">
+							<p className="text-xs uppercase tracking-[0.25em] text-red-400/70">Format</p>
+							<h3 className="mt-2 text-xl font-semibold text-red-100">Frontend Quiz</h3>
+							<p className="mt-2 text-sm text-slate-300">UX, HTML, CSS, JS essentials.</p>
+						</div>
+						<div className="rounded-2xl border border-red-500/20 bg-black/80 p-5">
+							<p className="text-xs uppercase tracking-[0.25em] text-red-400/70">Mission</p>
+							<h3 className="mt-2 text-xl font-semibold text-red-100">WebSprint</h3>
+							<p className="mt-2 text-sm text-slate-300">Fast thinking, clean design.</p>
+						</div>
+						<div className="rounded-2xl border border-red-500/20 bg-black/80 p-5">
+							<p className="text-xs uppercase tracking-[0.25em] text-red-400/70">Rules</p>
+							<h3 className="mt-2 text-xl font-semibold text-red-100">20 Questions</h3>
+							<p className="mt-2 text-sm text-slate-300">Instant score at the end.</p>
+						</div>
+					</div>
+
+					<div className="mt-8 flex flex-col items-center gap-4">
+						<Link
+							href="/Quiz"
+							className="inline-flex items-center justify-center rounded-full border border-red-500/50 bg-red-600 px-8 py-3 text-sm font-semibold text-white transition hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-400"
+						>
+							Enter the Quiz Arena
+						</Link>
+						<p className="text-xs text-red-400/70">
+							Tap to start the Infesta frontend game.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	);
 }

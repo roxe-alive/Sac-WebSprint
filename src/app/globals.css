@@ -1,14 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #050505;
+  --foreground: #f8f8f8;
+  --red-glow: #ff1a1a;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-orbitron);
   --font-mono: var(--font-geist-mono);
 }
 
@@ -22,5 +23,40 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-orbitron), Arial, Helvetica, sans-serif;
+}
+
+.infesta-animated-bg {
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(circle at 10% 10%, rgba(255, 26, 26, 0.18), transparent 35%),
+    radial-gradient(circle at 90% 20%, rgba(255, 26, 26, 0.12), transparent 40%),
+    radial-gradient(circle at 50% 90%, rgba(255, 26, 26, 0.22), transparent 35%),
+    #050505;
+}
+
+.infesta-animated-bg::before,
+.infesta-animated-bg::after {
+  content: "";
+  position: absolute;
+  inset: -30% -30% -30% -30%;
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.25), transparent 60%);
+  opacity: 0.6;
+  animation: infestaPulse 10s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.infesta-animated-bg::after {
+  animation-delay: -5s;
+  opacity: 0.35;
+}
+
+@keyframes infestaPulse {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(4%, -3%, 0) scale(1.15);
+  }
 }
