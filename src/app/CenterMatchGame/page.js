@@ -1,9 +1,13 @@
 "use client";
-import { useState, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function CssCenterGame() {
+  const router = useRouter();
   const containerRef = useRef(null);
   const playerRef = useRef(null);
+
+  const [accessChecked, setAccessChecked] = useState(false);
 
   const [cssInput, setCssInput] = useState(
 `left: 0px;
@@ -12,6 +16,16 @@ top: 0px;`
 
   const [score, setScore] = useState(0);
   const [result, setResult] = useState("");
+
+  useEffect(() => {
+    const hasWon = localStorage.getItem("won") === "true";
+    if (!hasWon) {
+      router.replace("/Quiz");
+      return;
+    }
+
+    setAccessChecked(true);
+  }, [router]);
 
   const applyCSS = () => {
     if (!playerRef.current) return;
@@ -51,6 +65,14 @@ top: 0px;`
   };
 
   return (
+    !accessChecked ? (
+      <div className="infesta-animated-bg min-h-screen flex items-center justify-center px-4 py-8 text-white sm:px-6">
+        <div className="w-full max-w-sm rounded-2xl border border-slate-900 bg-[#0b0b0b] p-8 text-center shadow-xl">
+          <p className="text-slate-400 text-sm uppercase tracking-widest">Checking access</p>
+          <h2 className="mt-2 text-xl font-semibold">Preparing your game…</h2>
+        </div>
+      </div>
+    ) : (
     <div className="infesta-animated-bg min-h-screen px-4 py-10 text-white sm:px-6 sm:py-14">
       <div className="mx-auto flex w-full max-w-5xl flex-col items-center gap-8 text-center">
         <div className="space-y-3">
@@ -127,5 +149,6 @@ top: 0px;`
         </div>
       </div>
     </div>
+    )
   );
 }

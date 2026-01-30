@@ -108,6 +108,18 @@ export default function Quiz() {
   }, [current, finish, quizQuestions.length]);
 
   useEffect(() => {
+    if (!finish) {
+      return;
+    }
+
+    if (score >= 10) {
+      localStorage.setItem("won", "true");
+    } else {
+      localStorage.removeItem("won");
+    }
+  }, [finish, score]);
+
+  useEffect(() => {
     if (finish || quizQuestions.length === 0) {
       return;
     }
