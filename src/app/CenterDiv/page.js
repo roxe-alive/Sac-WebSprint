@@ -8,6 +8,8 @@ export default function CssCenterGame() {
   const playerRef = useRef(null);
 
   const [accessChecked, setAccessChecked] = useState(false);
+  const [accessDenied, setAccessDenied] = useState(false);
+  
 
   const [cssInput, setCssInput] = useState(
 
@@ -15,11 +17,13 @@ export default function CssCenterGame() {
 
   const [score, setScore] = useState(0);
   const [result, setResult] = useState("");
+  const [hasWon, setHasWon] = useState(false);
 
   useEffect(() => {
-    const hasWon = localStorage.getItem("won") === "true";
+    const hasWon = localStorage.getItem("lvl") === "00x1" || localStorage.getItem("lvl") === "00x2";
     if (!hasWon) {
-      router.replace("/Quiz");
+      setAccessDenied(true);
+      setAccessChecked(true);
       return;
     }
 
@@ -58,8 +62,11 @@ export default function CssCenterGame() {
 
     if (match >= 90) {
       setResult("🎉 Perfect Center! You Win");
+      localStorage.setItem("lvl", "00x2");
+      setHasWon(true);
     } else {
       setResult("❌ Not Centered Yet");
+      setHasWon(false);
     }
   };
 
@@ -69,6 +76,22 @@ export default function CssCenterGame() {
         <div className="w-full max-w-sm rounded-2xl border border-slate-900 bg-[#0b0b0b] p-8 text-center shadow-xl">
           <p className="text-slate-400 text-sm uppercase tracking-widest">Checking access</p>
           <h2 className="mt-2 text-xl font-semibold">Preparing your game…</h2>
+        </div>
+      </div>
+    ) : accessDenied ? (
+      <div className="infesta-animated-bg min-h-screen flex items-center justify-center px-4 py-8 text-white sm:px-6">
+        <div className="w-full max-w-md rounded-2xl border border-red-500/40 bg-[#0b0b0b] p-8 text-center shadow-xl">
+          <p className="text-red-400 text-xs uppercase tracking-[0.3em]">Access denied</p>
+          <h2 className="mt-3 text-2xl font-semibold">Not allowed to play this level</h2>
+          <p className="mt-2 text-sm text-slate-400">
+            Finish the previous level to unlock this game.
+          </p>
+          <button
+            onClick={() => router.replace("/")}
+            className="mt-5 inline-flex items-center justify-center rounded-full border border-red-500/50 bg-red-600 px-6 py-2 text-sm font-semibold text-white transition hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-400"
+          >
+            Go to Home
+          </button>
         </div>
       </div>
     ) : (
@@ -142,6 +165,14 @@ export default function CssCenterGame() {
                 >
                   Check Match
                 </button>
+                {hasWon && (
+                  <button
+                    onClick={() => router.push("/Lvl3Game")}
+                    className="inline-flex items-center justify-center rounded-full border border-blue-500/60 bg-blue-600 px-6 py-2 text-sm font-semibold text-white transition hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  >
+                    Next: Lvl 3 Game
+                  </button>
+                )}
               </div>
             </div>
           </div>

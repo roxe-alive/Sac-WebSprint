@@ -58,10 +58,16 @@ export default function Home() {
 						Lvl:1 Enter the Quiz Arena
 						</Link>
 						<Link
-							href="/CenterMatchGame"
+							href="/CenterDiv"
 							className="inline-flex items-center justify-center rounded-full border border-red-500/50 bg-red-600 px-8 py-3 text-sm font-semibold text-white transition hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-400"
 						>
 						Lvl:2 Enter the Center Match Game
+						</Link>
+						<Link
+							href="/Lvl3Game"
+							className="inline-flex items-center justify-center rounded-full border border-red-500/50 bg-red-600 px-8 py-3 text-sm font-semibold text-white transition hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-400"
+						>
+						Lvl:3 Enter the Frontend Challenge (UI Making)
 						</Link>
 						<p className="text-xs text-red-400/70">
 							Tap to start the Infesta frontend game.

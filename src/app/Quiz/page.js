@@ -15,7 +15,6 @@ export default function Quiz() {
     { q: "Which is JS file?", options: [".js", ".css", ".html"], answer: 0 },
     { q: "Which is heading tag?", options: ["<h1>", "<p>", "<span>"], answer: 0 },
     { q: "Which is list tag?", options: ["<ul>", "<img>", "<table>"], answer: 0 },
-
     { q: "Which is image tag?", options: ["<img>", "<p>", "<h1>"], answer: 0 },
     { q: "Which is link tag?", options: ["<a>", "<link>", "<href>"], answer: 0 },
     { q: "Which is button tag?", options: ["<button>", "<btn>", "<click>"], answer: 0 },
@@ -113,9 +112,9 @@ export default function Quiz() {
     }
 
     if (score >= 10) {
-      localStorage.setItem("won", "true");
+      localStorage.setItem("lvl", "00x1");
     } else {
-      localStorage.removeItem("won");
+      localStorage.removeItem("lvl");
     }
   }, [finish, score]);
 
@@ -177,7 +176,7 @@ export default function Quiz() {
               Keep the momentum going with a quick centering challenge.
             </p>
             <Link
-              href="/CenterMatchGame"
+              href="/CenterDiv"
               className="mt-4 inline-flex items-center justify-center rounded-full border border-red-500/50 bg-red-600 px-8 py-3 text-sm font-semibold text-white transition hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-400"
             >
               Center Match Game
@@ -192,7 +191,7 @@ export default function Quiz() {
     <div className="infesta-animated-bg min-h-screen px-4 py-8 text-white sm:px-6 sm:py-12">
       <div className="mx-auto w-full max-w-4xl">
         <div className="mb-6 text-center sm:mb-10">
-          <p className="text-[11px] uppercase tracking-[0.4em] text-red-400/80 sm:text-xs">
+          <p className="text-[11px] uppercase tracking-[0.4em] text-white sm:text-xs">
             St. Antony's College Peruvanthanam
           </p>
           <h1 className="mt-2 text-2xl font-extrabold tracking-widest text-white sm:text-4xl md:text-5xl">
