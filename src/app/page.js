@@ -24,7 +24,7 @@ export default function Home() {
 					<h1 className="text-4xl font-extrabold tracking-widest text-white sm:text-5xl">
 						Infesta: WebSprint Challenge
 					</h1>
-					<p className="max-w-2xl text-base text-slate-200 sm:text-lg">
+					<p className="mx-auto max-w-2xl text-center text-base text-slate-200 sm:text-lg">
 						Welcome to Infesta, the official frontend development game at St. Antony&apos;s
 						College Peruvanthanam. Push your UI skills, race the clock, and earn your
 						bragging rights.

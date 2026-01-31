@@ -52,6 +52,9 @@ export default function Home() {
 			</div>
 		) : (
 			<div className="infesta-animated-bg relative min-h-screen w-full px-4 py-10 text-white sm:px-6 sm:py-12">
+				<div className="absolute left-4 top-4 rounded-full border border-red-500/50 bg-black/70 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.3em] text-red-300 sm:left-6 sm:top-6">
+					Lvl 3
+				</div>
 				<div className="mx-auto flex w-full max-w-4xl flex-col items-center justify-center gap-8 pt-14 text-center sm:gap-10 sm:pt-0">
 					<div className="space-y-4">
 						<p className="text-xs uppercase tracking-[0.4em] ">

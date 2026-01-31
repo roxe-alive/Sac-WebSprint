@@ -188,7 +188,10 @@ export default function Quiz() {
   }
 
   return (
-    <div className="infesta-animated-bg min-h-screen px-4 py-8 text-white sm:px-6 sm:py-12">
+    <div className="infesta-animated-bg relative min-h-screen px-4 py-8 text-white sm:px-6 sm:py-12">
+      <div className="absolute left-4 top-4 rounded-full border border-red-500/50 bg-black/70 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.3em] text-red-300 sm:left-6 sm:top-6">
+        Lvl 1
+      </div>
       <div className="mx-auto w-full max-w-4xl">
         <div className="mb-6 text-center sm:mb-10">
           <p className="text-[11px] uppercase tracking-[0.4em] text-white sm:text-xs">
@@ -226,7 +229,9 @@ export default function Quiz() {
               <button
                 key={i}
                 onClick={() => handleAnswer(i)}
-                className="group rounded-xl border border-slate-900 bg-[#050505] px-4 py-3 text-left font-medium text-slate-100 transition hover:border-red-500/70 hover:bg-red-600/20 focus:outline-none focus:ring-2 focus:ring-blue-500/60"
+                // className="group rounded-xl border border-slate-900 bg-[#050505] px-4 py-3 text-left font-medium text-slate-100 transition hover:border-red-500/70 hover:bg-red-600/20 focus:outline-none focus:ring-2 focus:ring-blue-500/60"
+                className="group rounded-xl border border-slate-900 bg-[#050505] px-4 py-3 text-left font-medium text-slate-100 transition hover:border-red-500/70 hover:bg-red-600/20 "
+
               >
                 <span className="text-slate-400 group-hover:text-red-300">{String.fromCharCode(65 + i)}.</span>{" "}
                 {opt}

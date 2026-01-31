@@ -6,11 +6,8 @@ export default function CssCenterGame() {
   const router = useRouter();
   const containerRef = useRef(null);
   const playerRef = useRef(null);
-
   const [accessChecked, setAccessChecked] = useState(false);
   const [accessDenied, setAccessDenied] = useState(false);
-  
-
   const [cssInput, setCssInput] = useState(
 
   );
@@ -32,17 +29,14 @@ export default function CssCenterGame() {
 
   const applyCSS = () => {
     if (!playerRef.current) return;
-
     playerRef.current.style.cssText = cssInput;
   };
 
   const checkMatch = () => {
     const container = containerRef.current.getBoundingClientRect();
     const player = playerRef.current.getBoundingClientRect();
-
     const containerCenterX = container.left + container.width / 2;
     const containerCenterY = container.top + container.height / 2;
-
     const playerCenterX = player.left + player.width / 2;
     const playerCenterY = player.top + player.height / 2;
 
@@ -95,7 +89,10 @@ export default function CssCenterGame() {
         </div>
       </div>
     ) : (
-    <div className="infesta-animated-bg min-h-screen px-4 py-10 text-white sm:px-6 sm:py-14">
+    <div className="infesta-animated-bg relative min-h-screen px-4 py-10 text-white sm:px-6 sm:py-14">
+      <div className="absolute left-4 top-4 rounded-full border border-red-500/50 bg-black/70 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.3em] text-red-300 sm:left-6 sm:top-6">
+        Lvl 2
+      </div>
       <div className="mx-auto flex w-full max-w-5xl flex-col items-center gap-8 text-center">
         <div className="space-y-3">
           <p className="text-[11px] uppercase tracking-[0.4em] text-red-400/80 sm:text-xs">
@@ -130,12 +127,12 @@ export default function CssCenterGame() {
                 </p>
                 <textarea
                   value={cssInput}
+                  placeholder="background-color: rebeccapurple;"
                   onChange={(e) => setCssInput(e.target.value)}
                   className="h-32 w-full rounded-2xl border border-red-500/30 bg-[#050505] p-3 text-sm text-slate-100 outline-none ring-red-400/40 transition focus:ring-2"
                 />
               </div>
             </div>
-
             <div className="flex flex-col items-center justify-center gap-6">
               <div className="w-full rounded-2xl border border-red-500/30 bg-[#0b0b0b] p-5 text-left shadow-[0_0_40px_rgba(0,0,0,0.7)]">
                 <p className="text-xs uppercase tracking-[0.25em] text-red-400/70">Scoreboard</p>
